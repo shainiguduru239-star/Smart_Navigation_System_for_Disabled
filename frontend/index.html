@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Navigation System</title>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Smart Navigation System</h1>
+        <p>Find your route quickly and easily</p>
+    </header>
+
+    <div class="container">
+
+        <div class="controls">
+
+            <button onclick="getCurrentLocation()">
+                📍 Use My Location
+            </button>
+
+            <input
+                type="text"
+                id="destination"
+                placeholder="Enter destination"
+            >
+            <button onclick="startVoiceSearch()">
+                Speak Destination
+            </button>
+
+            <select id="travelMode">
+                <option value="driving">🚗 Driving</option>
+                <option value="walking">🚶 Walking</option>
+                <option value="cycling">🚲 Cycling</option>
+            </select>
+
+            <button onclick="findRoute()">
+                🧭 Find Route
+            </button>
+
+        </div>
+        <div class="camera-section">
+
+    <h2>AI Obstacle Detection</h2>
+
+    <button onclick="startCamera()">
+        📷 Start Camera
+    </button>
+
+    <button onclick="stopCamera()">
+        ⛔ Stop Camera
+    </button>
+
+    <video id="camera" autoplay playsinline></video>
+
+    <p id="detectionStatus">
+        Camera is not started.
+    </p>
+
+</div>
+
+        <div id="map"></div>
+
+        <div class="result">
+            <h2>Navigation Details</h2>
+
+            <p>
+                <strong>Distance:</strong>
+                <span id="distance">--</span>
+            </p>
+
+            <p>
+                <strong>Estimated Time:</strong>
+                <span id="duration">--</span>
+            </p>
+
+            <p id="status">
+                Enter a destination to start navigation.
+            </p>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
